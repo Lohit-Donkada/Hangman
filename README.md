@@ -10,6 +10,7 @@ This is a fully interactive **Hangman Game** built with **Python's Tkinter GUI t
 ## 🖥️ Features
 
 - ✅ GUI built with Tkinter for a smooth and colorful experience
+- ✅ Number of attempts is equal to length of the word and for every correct attempt the attempt count would not change
 - ✅ Word is randomly picked from the official NLTK English corpus
 - ✅ Guaranteed **dictionary definition** for the selected word (shown as a hint)
 - ✅ Hints automatically shown at **half of the allowed attempts**
@@ -35,3 +36,5 @@ import nltk
 nltk.download('words')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+
+A demo video of the game is also put in the repository to show how it will look like when the program is being run. You can watch the video too for better experience.
