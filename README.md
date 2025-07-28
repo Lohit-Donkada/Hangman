@@ -1,4 +1,4 @@
-# 🎮 Advanced Hangman Game
+# 🎮 Hangman Game
 
 A classic word-guessing game built with a modern twist using HTML, CSS, and vanilla JavaScript. This project goes beyond a simple Hangman clone, incorporating multiple themes, dynamic difficulty, strategic power-ups, and a real-time accuracy tracker to create a polished and engaging user experience.
 
