@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Hangman Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="intro-screen" class="screen active">
+        <h1>🎉 Welcome to Hangman! 🎉</h1>
+        <p>Let's start with your name:</p>
+        <input type="text" id="name-input" class="input-field" placeholder="Enter Your Name" />
+        <button id="name-next-btn">Next</button>
+    </div>
+
+    <div id="instructions-screen" class="screen">
+        <h2>How to Play</h2>
+        <ul class="instructions-list">
+            <li>Guess the secret word one letter at a time.</li>
+            <li>Each wrong guess adds a part to the hangman.</li>
+            <li>You lose if the hangman is fully drawn!</li>
+        </ul>
+        <h3>Power-Ups & Hints</h3>
+        <ul class="instructions-list">
+            <li><strong>Show Hint:</strong> Click the button to reveal a clue about the word.</li>
+            <li><strong>Reveal Letter:</strong> Instantly shows one correct letter on the board.</li>
+            <li><strong>Remove Mistake:</strong> Erases your last wrong guess.</li>
+            <li><strong>50/50:</strong> Removes half of the incorrect letters from the keyboard.</li>
+        </ul>
+        <p><strong>Rule:</strong> If you choose **5 or fewer** chances, all power-ups are available. For more chances, only the first two are active.</p>
+        <button id="instructions-next-btn">Continue</button>
+    </div>
+
+    <div id="settings-screen" class="screen">
+        <h2>Game Settings</h2>
+        <div class="settings-container">
+            <div class="setting">
+                <label for="theme-select">Choose a Theme</label>
+                <select id="theme-select" class="input-field">
+                    <option value="general">General Knowledge</option>
+                    <option value="animals">Animals</option>
+                    <option value="technology">Technology</option>
+                    <option value="food">Food</option>
+                    <option value="sports">Sports</option>
+                    <option value="science">Science</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="word-length-input">Word Length (4-10)</label>
+                <input type="number" id="word-length-input" class="input-field" min="4" max="10" placeholder="Any">
+            </div>
+            <div class="setting">
+                <label for="chances-input">Number of Chances</label>
+                <input type="number" id="chances-input" class="input-field" min="3" max="10" placeholder="6">
+            </div>
+        </div>
+        <div class="timed-mode-container">
+            <input type="checkbox" id="timed-mode-checkbox">
+            <label for="timed-mode-checkbox">Enable Timed Mode (90s)</label>
+        </div>
+        <button id="start-button">Start Game</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="top-bar">
+            <h2 id="welcome-message"></h2>
+            <div id="timer-display"></div>
+        </div>
+        <div class="main-game-area">
+            <div class="game-play">
+                <div class="powerups-container">
+                    <button id="show-hint-btn" class="powerup-btn hint-btn">Show Hint</button>
+                    <button id="powerup-reveal" class="powerup-btn">Reveal Letter</button>
+                    <button id="powerup-remove" class="powerup-btn">Remove Mistake</button>
+                    <button id="powerup-5050" class="powerup-btn">50/50</button>
+                </div>
+                <div class="game-container">
+                    <div class="hangman-box">
+                        <svg height="250" width="200" class="hangman-svg">
+                            <line x1="60" y1="20" x2="140" y2="20" /><line x1="140" y1="20" x2="140" y2="50" /><line x1="60" y1="20" x2="60" y2="230" /><line x1="20" y1="230" x2="100" y2="230" />
+                            <circle cx="140" cy="70" r="20" class="figure-part" /><line x1="140" y1="90" x2="140" y2="150" class="figure-part" /><line x1="140" y1="120" x2="110" y2="100" class="figure-part" /><line x1="140" y1="120" x2="170" y2="100" class="figure-part" /><line x1="140" y1="150" x2="110" y2="180" class="figure-part" /><line x1="140" y1="150" x2="170" y2="180" class="figure-part" />
+                        </svg>
+                    </div>
+                    <div class="game-info">
+                        <p id="attempts-left"></p>
+                        <p id="hint-text" class="hint">Click the button for a hint!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accuracy-chart-container">
+                <span id="accuracy-label">Accuracy</span>
+                <div class="accuracy-bar-wrapper">
+                    <div id="accuracy-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div id="word-display" class="word-display"></div>
+        <div id="keyboard" class="keyboard"></div>
+    </div>
+
+    <div id="popup-container" class="popup-container">
+        <div class="popup">
+            <h2 id="final-message"></h2>
+            <h3 id="final-message-reveal"></h3>
+            <p id="final-hint"></p>
+            <p id="accuracy-display"></p>
+            <button id="play-again-button">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
